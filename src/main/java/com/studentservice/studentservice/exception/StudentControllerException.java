@@ -2,7 +2,7 @@ package com.studentservice.studentservice.exception;
 
 import java.util.Date;
 
-public class StudentControllerException {
+public class StudentControllerException extends  RuntimeException{
     public String errorMessage;
 
     public String error;

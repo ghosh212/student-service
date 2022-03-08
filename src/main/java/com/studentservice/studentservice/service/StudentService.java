@@ -5,17 +5,18 @@ import com.studentservice.studentservice.data.StudentDataResponse;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public interface StudentService {
 
-    public StudentData addStudent(StudentData studentData);
+    public StudentDataResponse addStudent(StudentData studentData);
 
     public StudentDataResponse deleteStudent(String registrationNumber);
 
     public StudentDataResponse updateStudent (String registrationNumber, StudentData studentData);
 
-    public StudentData getSingleStudent(String registrationNumber);
+    public Optional<StudentData> getSingleStudent(String registrationNumber);
 
     public List<StudentData> getStudentByStandardAndSection(String section, Integer standard);
 
