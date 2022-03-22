@@ -19,7 +19,7 @@ public interface StudentDetail {
 
     public List<StudentDetailsResponse> getStudentsByPercentageAndStandard(Float percentage,String range, Integer standard);
 
-    public List<StudentDetailsResponse> getStudentsBySubjectAndMarksRange(String subject, Integer marks, String range);
+    public List<StudentDetailsResponse> getStudentsBySubjectAndMarksRange(String subject, Integer marks, String range,Integer standard);
 
 
 }

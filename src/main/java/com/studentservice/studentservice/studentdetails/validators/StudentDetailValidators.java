@@ -17,4 +17,6 @@ public interface StudentDetailValidators {
 
     public boolean percentageRangeChecker(StudentDetails studentDetails,Float percentage, String range);
 
+    public boolean subjectAndMarksRangeChecker(StudentDetails studentDetails, Integer marks, String range,String subject);
+
 }

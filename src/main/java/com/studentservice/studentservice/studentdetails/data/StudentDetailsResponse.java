@@ -16,5 +16,7 @@ public class StudentDetailsResponse {
     private String message;
     private Integer rank;
     private float percentage;
+    private String subject;
+    private Integer marks;
 
 }

@@ -86,4 +86,30 @@ public class StudentValidatorHelper implements StudentDetailValidators{
         }
         return false;
     }
+
+    @Override
+    public boolean subjectAndMarksRangeChecker(StudentDetails studentDetails, Integer marks, String range,String subject) {
+        if (range == range_equal){
+            if (studentDetails.getExamMarksData().getTotalMarks().get(subject) == marks){
+                return true;
+            }
+        }else if (range == range_greater){
+        if (studentDetails.getExamMarksData().getTotalMarks().get(subject) > marks){
+            return true;
+        }
+    }else if (range == range_lesser){
+        if (studentDetails.getExamMarksData().getTotalMarks().get(subject) < marks){
+            return true;
+        }
+    }else if (range == range_greater_equal){
+        if (studentDetails.getExamMarksData().getTotalMarks().get(subject) >= marks){
+            return true;
+        }
+    }else if (range == range_lesser_equal) {
+            if (studentDetails.getExamMarksData().getTotalMarks().get(subject) <= marks) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

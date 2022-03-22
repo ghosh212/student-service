@@ -96,7 +96,7 @@ public class StudentDetailsService implements StudentDetail{
         if (sDataList.isEmpty()){
             throw new StudentDetailsServiceException(AllStudentDetailsMappers.STUDENT_LIST_EMPTY.getMessage(), AllStudentDetailsMappers.STUDENT_LIST_EMPTY.getError(), new Date());
         }
-        log.debug("FETCHING STUDENT ON PERCENTAGE");
+        log.debug("FETCHING/MANUPULATING STUDENT ON PERCENTAGE");
         Map<String,String> studentRegistrationMap = studentHelper.getRegistrationNumberAndName(sDataList);
         List<String> registrationNumberList = new ArrayList<>(studentRegistrationMap.keySet());
         List<StudentDetails> sDetailsList = studentDetailsRepository.findStudentByMultipleRegistration(registrationNumberList);
@@ -108,7 +108,18 @@ public class StudentDetailsService implements StudentDetail{
     }
 
     @Override
-    public List<StudentDetailsResponse> getStudentsBySubjectAndMarksRange(String subject, Integer marks, String range) throws StudentDetailsServiceException {
+    public List<StudentDetailsResponse> getStudentsBySubjectAndMarksRange(String subject, Integer marks, String range, Integer standard) throws StudentDetailsServiceException {
+        log.debug("Fetching Student on basis of standard from student DB");
+        List<StudentData> sDataList = sRepo.findStudentByStandard(standard);
+        if (sDataList.isEmpty()){
+            throw new StudentDetailsServiceException(AllStudentDetailsMappers.STUDENT_LIST_EMPTY.getMessage(), AllStudentDetailsMappers.STUDENT_LIST_EMPTY.getError(), new Date());
+        }
+        Map<String,String> studentRegistrationMap = studentHelper.getRegistrationNumberAndName(sDataList);
+        List<String> registrationNumberList = new ArrayList<>(studentRegistrationMap.keySet());
+        List<StudentDetails> sDetailsList = studentDetailsRepository.findStudentByMultipleRegistration(registrationNumberList);
+
+        log.debug("Fetching/manupulation data on basis on marks");
+
         return null;
     }
 }

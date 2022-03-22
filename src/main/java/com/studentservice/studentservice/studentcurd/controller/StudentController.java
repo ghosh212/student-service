@@ -28,7 +28,7 @@ import java.util.Optional;
 
 @RequestMapping("/student")
 @Slf4j
-@Tag(name = "STUDENT API", description = "Manage Students and their details")
+@Tag(name = "STUDENT API", description = "Manage Students and their Personal details")
 public class StudentController {
 
     @Autowired
@@ -121,7 +121,7 @@ public class StudentController {
             Optional<StudentData> sDataResponse = sService.getSingleStudent(registrationNumber);
             return new ResponseEntity< Optional<StudentData>>(sDataResponse, HttpStatus.OK);
         } catch (StudentServiceException ex) {
-            StudentControllerException sControllerException = new StudentControllerException(AllMappers.STUDENT_INSERT_UNSUCCESSFULL.getMessage(), AllMappers.STUDENT_INSERT_UNSUCCESSFULL.getError(), new Date());
+            StudentControllerException sControllerException = new StudentControllerException(AllMappers.STUDENT_DATA_EMPTY.getMessage(), AllMappers.STUDENT_DATA_EMPTY.getError(), new Date());
             return new ResponseEntity<StudentControllerException>(sControllerException, HttpStatus.NOT_FOUND);
         }
     }
@@ -143,7 +143,7 @@ public class StudentController {
             List<StudentData> studentList = sService.getStudentByStandardAndSection(section,standard);
             return new ResponseEntity<List<StudentData>>(studentList, HttpStatus.OK);
         } catch (StudentServiceException ex) {
-            StudentControllerException sControllerException = new StudentControllerException(AllMappers.STUDENT_INSERT_UNSUCCESSFULL.getMessage(), AllMappers.STUDENT_INSERT_UNSUCCESSFULL.getError(), new Date());
+            StudentControllerException sControllerException = new StudentControllerException(AllMappers.STUDENT_DATA_EMPTY.getMessage(), AllMappers.STUDENT_DATA_EMPTY.getError(), new Date());
             return new ResponseEntity<StudentControllerException>(sControllerException, HttpStatus.EXPECTATION_FAILED);
         }
     }
@@ -165,7 +165,7 @@ public class StudentController {
             List<StudentData> studentList = sService.getStudentByStandardAndSectionAndStream(section,standard,plus12Stream);
             return new ResponseEntity<List<StudentData>>(studentList, HttpStatus.OK);
         } catch (StudentServiceException ex) {
-            StudentControllerException sControllerException = new StudentControllerException(AllMappers.STUDENT_INSERT_UNSUCCESSFULL.getMessage(), AllMappers.STUDENT_INSERT_UNSUCCESSFULL.getError(), new Date());
+            StudentControllerException sControllerException = new StudentControllerException(AllMappers.STUDENT_DATA_EMPTY.getMessage(), AllMappers.STUDENT_DATA_EMPTY.getError(), new Date());
             return new ResponseEntity<StudentControllerException>(sControllerException, HttpStatus.EXPECTATION_FAILED);
         }
     }

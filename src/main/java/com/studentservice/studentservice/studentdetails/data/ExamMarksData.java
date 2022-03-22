@@ -18,7 +18,9 @@ public class ExamMarksData {
     private Map<String,Integer> midYearTerm;
     private Map<String,Integer> unitTest_2;
     private Map<String,Integer> finalTerm;
+    private Map<String,Integer> totalMarks;
     private Integer rank;
     private boolean rankHolder;
     private Float percentage;
+
 }

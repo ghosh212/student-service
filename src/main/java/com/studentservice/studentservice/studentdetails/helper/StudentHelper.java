@@ -57,13 +57,28 @@ public class StudentHelper {
     public List<StudentDetailsResponse> getStudentOnPercentage(List<StudentDetails> studentDetails,Float percentage, String range) throws StudentDetailsServiceException{
         List<StudentDetailsResponse> sDetailsList = new ArrayList<StudentDetailsResponse>();
         StudentDetailsResponse sDetailResponse = new StudentDetailsResponse();
-        for (StudentDetails sDetails : studentDetails){
-            if (studentDetailValidators.percentageRangeChecker(sDetails,percentage,range));
-            sDetailResponse.setMessage("Found");
-            sDetailResponse.setName(sDetails.getRegistrationNumber());
+        for (StudentDetails sDetails : studentDetails) {
+            if (studentDetailValidators.percentageRangeChecker(sDetails, percentage, range))
+                sDetailResponse.setMessage("Found");
+            sDetailResponse.setRegistrationNumber(sDetails.getRegistrationNumber());
             sDetailResponse.setPercentage(sDetails.getExamMarksData().getPercentage());
             sDetailsList.add(sDetailResponse);
         }
+            return sDetailsList;
+
+        }
+
+    public List<StudentDetailsResponse> getStudentSubjectAndMarks(List<StudentDetails> studentDetails, Integer marks, String range,String subject) throws StudentDetailsServiceException {
+        List<StudentDetailsResponse> sDetailsList = new ArrayList<StudentDetailsResponse>();
+        StudentDetailsResponse sDetailResponse = new StudentDetailsResponse();
+        for (StudentDetails sDetails : studentDetails){
+            if (studentDetailValidators.subjectAndMarksRangeChecker(sDetails, marks, range, subject))
+                sDetailResponse.setMessage("Found");
+        sDetailResponse.setRegistrationNumber(sDetails.getRegistrationNumber());
+        sDetailResponse.setSubject(subject);
+        sDetailResponse.setMarks(sDetails.getExamMarksData().getTotalMarks().get(subject));
+        sDetailsList.add(sDetailResponse);
+    }
         return sDetailsList;
     }
 
