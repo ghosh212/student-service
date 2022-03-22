@@ -1,4 +1,4 @@
-package com.studentservice.studentservice;
+package com.studentservice.studentservice.studentcurd;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

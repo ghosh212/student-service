@@ -1,11 +1,11 @@
-package com.studentservice.studentservice.controller;
+package com.studentservice.studentservice.studentcurd.controller;
 
-import com.studentservice.studentservice.Mappers.AllMappers;
-import com.studentservice.studentservice.data.StudentData;
-import com.studentservice.studentservice.data.StudentDataResponse;
-import com.studentservice.studentservice.exception.StudentControllerException;
-import com.studentservice.studentservice.exception.StudentServiceException;
-import com.studentservice.studentservice.service.StudentServiceImpl;
+import com.studentservice.studentservice.studentcurd.mappers.AllMappers;
+import com.studentservice.studentservice.studentcurd.data.StudentData;
+import com.studentservice.studentservice.studentcurd.data.StudentDataResponse;
+import com.studentservice.studentservice.studentcurd.exception.StudentControllerException;
+import com.studentservice.studentservice.studentcurd.exception.StudentServiceException;
+import com.studentservice.studentservice.studentcurd.service.StudentServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -42,7 +42,7 @@ public class StudentController {
                     content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = StudentControllerException.class))}),
     })
     @RequestMapping(value = "/addStudent", method = RequestMethod.POST)
-    public ResponseEntity<?> addStudent(@RequestBody(required = true)StudentData sData) {
+    public ResponseEntity<?> addStudent(@RequestBody(required = true) StudentData sData) {
         if (ObjectUtils.isEmpty(sData)) {
             StudentControllerException sControllerException = new StudentControllerException(AllMappers.STUDENT_DATA_EMPTY.getMessage(), AllMappers.STUDENT_DATA_EMPTY.getError(), new Date());
             return new ResponseEntity<StudentControllerException>(sControllerException, HttpStatus.EXPECTATION_FAILED);

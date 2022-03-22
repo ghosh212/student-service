@@ -1,6 +1,6 @@
-package com.studentservice.studentservice.repo;
+package com.studentservice.studentservice.studentcurd.repo;
 
-import com.studentservice.studentservice.data.StudentData;
+import com.studentservice.studentservice.studentcurd.data.StudentData;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 
@@ -13,5 +13,8 @@ public interface StudentRepository extends MongoRepository<StudentData, String> 
 
     @Query("{'section':?0,'standard':?1,'plus12Stream':?2}")
     List<StudentData> findStudentByStandardAndSectionAndStream(String section, Integer standard, String plus12Stream);
+
+    @Query("{'standard':?0}")
+    List<StudentData> findStudentByStandard(Integer Standard);
 
 }

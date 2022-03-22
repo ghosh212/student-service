@@ -1,4 +1,4 @@
-package com.studentservice.studentservice;
+package com.studentservice.studentservice.studentcurd;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

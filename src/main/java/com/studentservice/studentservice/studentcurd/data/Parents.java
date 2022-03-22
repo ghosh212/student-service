@@ -1,4 +1,4 @@
-package com.studentservice.studentservice.data;
+package com.studentservice.studentservice.studentcurd.data;
 
 import lombok.*;
 

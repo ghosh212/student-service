@@ -1,7 +1,7 @@
-package com.studentservice.studentservice.service;
+package com.studentservice.studentservice.studentcurd.service;
 
-import com.studentservice.studentservice.data.StudentData;
-import com.studentservice.studentservice.data.StudentDataResponse;
+import com.studentservice.studentservice.studentcurd.data.StudentData;
+import com.studentservice.studentservice.studentcurd.data.StudentDataResponse;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

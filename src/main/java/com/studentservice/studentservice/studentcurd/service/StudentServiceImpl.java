@@ -1,14 +1,12 @@
-package com.studentservice.studentservice.service;
+package com.studentservice.studentservice.studentcurd.service;
 
-import com.studentservice.studentservice.Mappers.AllMappers;
-import com.studentservice.studentservice.data.StudentData;
-import com.studentservice.studentservice.data.StudentDataResponse;
-import com.studentservice.studentservice.exception.StudentServiceException;
-import com.studentservice.studentservice.repo.StudentRepository;
+import com.studentservice.studentservice.studentcurd.mappers.AllMappers;
+import com.studentservice.studentservice.studentcurd.data.StudentData;
+import com.studentservice.studentservice.studentcurd.data.StudentDataResponse;
+import com.studentservice.studentservice.studentcurd.exception.StudentServiceException;
+import com.studentservice.studentservice.studentcurd.repo.StudentRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.core.query.Criteria;
-import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 
@@ -42,6 +40,7 @@ public class StudentServiceImpl implements StudentService {
         return sDataResponse;
     }
 
+    //to-do soft delete
     @Override
     public StudentDataResponse deleteStudent(String registrationNumber) {
         log.debug("Inserting Student Data in DB");

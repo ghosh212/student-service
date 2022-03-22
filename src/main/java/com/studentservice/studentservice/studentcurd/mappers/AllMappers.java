@@ -1,4 +1,4 @@
-package com.studentservice.studentservice.Mappers;
+package com.studentservice.studentservice.studentcurd.mappers;
 
 import lombok.Getter;
 import org.springframework.stereotype.Service;

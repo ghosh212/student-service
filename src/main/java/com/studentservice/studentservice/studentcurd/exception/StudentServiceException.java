@@ -1,4 +1,4 @@
-package com.studentservice.studentservice.exception;
+package com.studentservice.studentservice.studentcurd.exception;
 
 import java.util.Date;
 
